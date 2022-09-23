@@ -1,0 +1,12 @@
+header {
+    text-align: center;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-left: 5px;
+}
