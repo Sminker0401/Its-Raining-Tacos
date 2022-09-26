@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>It's Raining Tacos</title>
-    <!-- <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsMvW7KfFq6FN_pzXgBBpZrPoRnZ6b764&libraries=places">
-    </script> -->
-</head>
-<body>
+  </head>
+  <body onload="initialize()">
     <div class="content">
-    <header >
+      <header>
         <h1>It's Raining Tacos</h1>
-    </header>
-    <section>
-    <div id="search">
-        <input type="text" id="user-search"
-        placeholder="Search Your Town...">
+      </header>
+      <section>
+        <div id="search">
+          <input type="text" id="user-search" placeholder="Search Your Town..."/>
+        </div>
+        <button id="gobutton" class="button is-primary is-small">Go</button>
+      </section>
+      <div id="searchResults"></div>
     </div>
-    <button id="gobutton" class="button is-primary is-small">
-        Go
-    </button>
-    
-    </section>
-    <div id="searchResults">
-    </div>
-    <div id="hero"></div>
-</div>
     <div id="map"></div>
-</body>
-<script
+    <div id="list"></div>
+  </body>
+  <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsMvW7KfFq6FN_pzXgBBpZrPoRnZ6b764&libraries=places"
     defer
-    ></script>
-<script src="assets\script.js"></script>
+  ></script>
+  <script src="assets\script.js"></script>
 </html>
