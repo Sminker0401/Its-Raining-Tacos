@@ -1,10 +1,26 @@
 header {
     text-align: center;
+    padding: 25px;
+    background-color: rgb(169, 169, 169);
+    font-size: 50px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
 }
 
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    margin: 0 0.625rem;
+    padding: 0;
+    animation: scrollUp 4s infinite;
+}
 section {
     display: flex;
     justify-content: center;
+    margin: 25px;
 }
 
 button {
@@ -14,4 +30,6 @@ button {
 #map {
     display: none;
 }
+
+
 
