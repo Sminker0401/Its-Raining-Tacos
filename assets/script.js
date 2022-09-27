@@ -5,6 +5,7 @@ var geocoder;
 var gobutton = document.getElementById("gobutton");
 var userlocation;
 var displaylist = document.getElementById("list");
+var address;
 
 // Below function runs when page loads
 
@@ -36,8 +37,10 @@ function initMap() {
 
   console.log("hello world");
 
+  var address = document.getElementById("user-search").value;
+
   var requestUrl =
-    "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=04c358570a8428feb8acff9034f9c7b2";
+    `https://api.openweathermap.org/data/2.5/weather?q=${address}&appid=04c358570a8428feb8acff9034f9c7b2`;
 
   fetch(requestUrl)
     .then(function (response) {
