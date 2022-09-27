@@ -9,14 +9,15 @@ header {
     text-align: center;
     padding: 10px;
     background-color: rgb(169, 169, 169);
-    font-size: 50px;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    font-size: 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 h1 {
     display: flex;
     justify-content: center;
+    
 }
 
 /*section {
@@ -28,8 +29,8 @@ h1 {
 #search {
     display: flex;
     justify-content: center;
-    padding: 50px;
-    background-color: black;
+    padding: 30px;
+    background: rgba(5, 5, 5, 0.5);
 }
 
 button {
