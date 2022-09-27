@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/style.css"/>
     <title>It's Raining Tacos</title>
-  </head>
-  <body onload="initialize()">
+
+</head>
+<body onload="initialize()">
     <div class="content">
-      <header>
-        <h1>It's Raining Tacos</h1>
-      </header>
-      <section>
-        <div id="search">
-          <input type="text" id="user-search" placeholder="Search Your Town..."/>
-        </div>
-        <button id="gobutton" class="button is-primary is-small">Go</button>
-      </section>
-      <div id="searchResults"></div>
+    <header>
+        <h1 class="title-is-1">It's Raining <span id="cycle"></span>!</h1>
+    </header>
+
+    <section id="search">
+    <div>
+        <input type="text" id="user-search"
+        placeholder="Search Your Town...">
     </div>
+    <button id="gobutton" class="button is-primary is-small">
+        Go
+    </button>
+    </section>
+    <section id="searchResults">
+    </section>
     <div id="map"></div>
     <div id="list"></div>
-  </body>
-  <script
+</body>
+<script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsMvW7KfFq6FN_pzXgBBpZrPoRnZ6b764&libraries=places"
-    defer
-  ></script>
-  <script src="assets\script.js"></script>
+    >defer
+</script>
+<script src="assets\script.js"></script>
 </html>
