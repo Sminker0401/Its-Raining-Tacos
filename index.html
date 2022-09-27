@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style.css"/>
     <title>It's Raining Tacos</title>
-    <!-- <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsMvW7KfFq6FN_pzXgBBpZrPoRnZ6b764&libraries=places">
-    </script> -->
+
 </head>
-<body>
-    <div>
+<body onload="initialize()">
+    <div class="content">
     <header>
-        <h1 class="title-is-1">It's Raining <span id="cycle"></span></h1>
+        <h1 class="title-is-1">It's Raining <span id="cycle"></span>!</h1>
     </header>
 
     <section id="search">
@@ -29,10 +31,11 @@
     <section id="searchResults">
     </section>
     <div id="map"></div>
+    <div id="list"></div>
 </body>
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsMvW7KfFq6FN_pzXgBBpZrPoRnZ6b764&libraries=places"
-    defer
-    ></script>
+    >defer
+</script>
 <script src="assets\script.js"></script>
 </html>
