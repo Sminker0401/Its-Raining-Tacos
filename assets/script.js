@@ -74,7 +74,7 @@ function initMap() {
 
   var request = {
     location: userlocation[0].geometry.location,
-    radius: "200",
+    radius: "50",
     type: ["restaurant"],
   };
 
