@@ -40,3 +40,16 @@ button {
 #map {
     display: none;
 }
+
+#temp-results {
+    text-align: center;
+    color: white;
+}
+
+#list {
+    text-align: center;
+}
+
+#list h1 {
+    color: white;
+}
