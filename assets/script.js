@@ -11,7 +11,7 @@ var address;
 
 function initialize() {
   geocoder = new google.maps.Geocoder();
-  map = new google.maps.Map(document.getElementById('map'));
+  map = new google.maps.Map(document.getElementById("map"));
 }
 
 // Above function runs when page loads
@@ -23,7 +23,7 @@ gobutton.addEventListener("click", function codeAddress() {
   geocoder.geocode({ address: address }, function (results, status) {
     if (status == "OK") {
       userlocation = results;
-      initMap();
+      gettemp();
     } else {
       alert("Geocode was not successful for the following reason: " + status);
     }
@@ -32,16 +32,14 @@ gobutton.addEventListener("click", function codeAddress() {
 
 // Below function runs when User clicks "Go" button. (displays restaurants within a radius of the user search geo location)
 
-function initMap() {
-
+function gettemp() {
   // Weather API below here
 
   console.log("hello world");
 
   var address = document.getElementById("user-search").value;
 
-  var requestUrl =
-    `https://api.openweathermap.org/data/2.5/weather?q=${address}&units=imperial&appid=04c358570a8428feb8acff9034f9c7b2`;
+  var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${address}&units=imperial&appid=04c358570a8428feb8acff9034f9c7b2`;
 
   fetch(requestUrl)
     .then(function (response) {
@@ -49,21 +47,41 @@ function initMap() {
     })
     .then(function (data) {
       var userlocationtemp = data.main.temp;
-      console.log(typeof userlocationtemp)
-      tempresults = document.getElementById("temp-results")
+      console.log(typeof userlocationtemp);
+      tempresults = document.getElementById("temp-results");
       if (userlocationtemp < 65) {
-        tempresults.textContent = "It's a little cold in " + address + ". Here are some recommendations to warm you up."
+        tempresults.textContent =
+          "It's a little cold in " +
+          address +
+          ". Here are some recommendations to warm you up.";
+        var restaurantsuggest = "cold";
+        initMap(restaurantsuggest);
       } else if (userlocationtemp < 75) {
-        tempresults.textContent = "Spring is in the air in " + address + ". Here are some recommendations to enjoy this nice weather."
+        tempresults.textContent =
+          "Spring is in the air in " +
+          address +
+          ". Here are some recommendations to enjoy this nice weather.";
+        var restaurantsuggest = "nice";
+        initMap(restaurantsuggest);
       } else if (userlocationtemp < 90) {
-        tempresults.textContent = "It's heating up in " + address + ". Here are some chill spots to get a bite."
+        tempresults.textContent =
+          "It's heating up in " +
+          address +
+          ". Here are some chill spots to get a bite.";
+        var restaurantsuggest = "warm";
+        initMap(restaurantsuggest);
       } else {
-        tempresults.textContent = "It's a scorcher in " + address + ". Here are some frosty hangouts."
+        tempresults.textContent =
+          "It's a scorcher in " + address + ". Here are some frosty hangouts.";
+        var restaurantsuggest = "hot";
+        initMap(restaurantsuggest);
       }
     });
 
   // Weather API above here
+}
 
+function initMap(restaurantsuggest) {
   // Google Maps API below here
 
   console.log(userlocation[0].geometry.location);
@@ -74,7 +92,7 @@ function initMap() {
 
   var request = {
     location: userlocation[0].geometry.location,
-    radius: "200",
+    radius: "100",
     type: ["restaurant"],
   };
 
@@ -84,14 +102,19 @@ function initMap() {
   // Remove old search results below here
 
   while (displaylist.hasChildNodes()) {
-    displaylist.removeChild(displaylist.firstChild)
+    displaylist.removeChild(displaylist.firstChild);
   }
 
   // Remove old search results above here
 
-
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+      console.log(restaurantsuggest);
+
+      // if (restaurantsuggest = "warm") {
+      //   results
+      // }
+
       for (var i = 0; i < results.length; i++) {
         var listname = document.createElement("h1");
         listname.textContent = results[i].name;
@@ -103,16 +126,16 @@ function initMap() {
       }
     }
   }
-
-  // Google Maps API above here
 }
+
+// Google Maps API above here
 
 const textList = [" Tacos", " Ice Cream", " Burgers", " Sushi"];
 
 const cycle = document.querySelector("#cycle");
 let i = 0;
 const cycleText = () => {
-  cycle.innerHTML = (" " + textList[i]);
+  cycle.innerHTML = " " + textList[i];
   i = ++i % textList.length;
 };
 cycleText();
