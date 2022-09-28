@@ -52,4 +52,13 @@ button {
 
 #list h1 {
     color: white;
+   
+} 
+
+#list h1, .results_box {
+    background: peachpuff;
+    border-radius: 5px;
+    width: 1000px;
+    align-items: center;
+
 }
