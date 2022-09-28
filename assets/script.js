@@ -33,6 +33,7 @@ gobutton.addEventListener("click", function codeAddress() {
 // Below function runs when User clicks "Go" button. (displays restaurants within a radius of the user search geo location)
 
 function initMap() {
+
   // Weather API below here
 
   console.log("hello world");
@@ -40,15 +41,25 @@ function initMap() {
   var address = document.getElementById("user-search").value;
 
   var requestUrl =
-    `https://api.openweathermap.org/data/2.5/weather?q=${address}&appid=04c358570a8428feb8acff9034f9c7b2`;
+    `https://api.openweathermap.org/data/2.5/weather?q=${address}&units=imperial&appid=04c358570a8428feb8acff9034f9c7b2`;
 
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      // }
+      var userlocationtemp = data.main.temp;
+      console.log(typeof userlocationtemp)
+      tempresults = document.getElementById("temp-results")
+      if (userlocationtemp < 65) {
+        tempresults.textContent = "It's a little cold in " + address + ". Here are some recommendations to warm you up."
+      } else if (userlocationtemp < 75) {
+        tempresults.textContent = "Spring is in the air in " + address + ". Here are some recommendations to enjoy this nice weather."
+      } else if (userlocationtemp < 90) {
+        tempresults.textContent = "It's heating up in " + address + ". Here are some chill spots to get a bite."
+      } else {
+        tempresults.textContent = "It's a scorcher in " + address + ". Here are some frosty hangouts."
+      }
     });
 
   // Weather API above here
@@ -69,6 +80,15 @@ function initMap() {
 
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
+
+  // Remove old search results below here
+
+  while (displaylist.hasChildNodes()) {
+    displaylist.removeChild(displaylist.firstChild)
+  }
+
+  // Remove old search results above here
+
 
   function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
