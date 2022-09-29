@@ -50,14 +50,18 @@ button {
 }
 
 #list h1 {
-    color: white;
+    color: black;
     
    
 } 
 
-#list h1, .results_box {
-    background: peachpuff;
-    border-radius: 5px;
-    width: 1000px;
-
+.results_box, #list h1 {
+    display:flex;
+    flex-wrap: wrap;
+    background: rgba(255, 228, 196, 0.774);
+    border-radius: 10px;
+    width: 500px;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
