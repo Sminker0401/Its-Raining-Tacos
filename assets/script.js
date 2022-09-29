@@ -107,7 +107,7 @@ function initMap() {
   // Google Maps API above here
 }
 
-const textList = [" Tacos", " Ice Cream", " Burgers", " Sushi"];
+const textList = [" Tacos!", " Ice Cream!", " Burgers!", " Sushi!"];
 
 const cycle = document.querySelector("#cycle");
 let i = 0;
