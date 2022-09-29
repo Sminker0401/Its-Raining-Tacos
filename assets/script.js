@@ -16,7 +16,7 @@ function initialize() {
 
 // Above function runs when page loads
 
-// Below function runs when User clicks "Go" button. (finds goelocation of user search)
+// Below function runs when User clicks "Go" button. (finds geolocation of user search)
 
 gobutton.addEventListener("click", function codeAddress() {
   var address = document.getElementById("user-search").value;
