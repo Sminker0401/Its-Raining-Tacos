@@ -18,14 +18,9 @@ h1 {
     
 }
 
-/*section {
-    display: flex;
-    justify-content: center;
-    margin: 25px;
-}*/
-
 #search {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 30px;
     background: rgba(5, 5, 5, 0.5);
@@ -45,19 +40,11 @@ button {
     font-size: 30px;
 }
 
-#list {
-    text-align: center;
-}
-
 #list h1 {
-    color: black;
-    
-   
-} 
-
-.results_box, #list h1 {
     display:flex;
     flex-wrap: wrap;
+    text-align: center;
+    color: black;
     background: rgba(255, 228, 196, 0.774);
     border-radius: 10px;
     width: 500px;
