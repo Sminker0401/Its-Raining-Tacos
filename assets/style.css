@@ -18,6 +18,10 @@ h1 {
     
 }
 
+#cycle {
+    position: absolute;
+}
+
 #search {
     display: flex;
     flex-wrap: wrap;
