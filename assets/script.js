@@ -121,7 +121,7 @@ function initMap(restaurantsuggest) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       console.log(restaurantsuggest);
 
-      for (var i = 0; i < 11; i++) {
+      for (var i = 0; i < 4; i++) {
         var listname = document.createElement("h1");
         listname.textContent = results[i].name;
         var listaddress = document.createElement("li");
