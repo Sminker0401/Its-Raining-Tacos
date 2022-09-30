@@ -15,6 +15,7 @@ header {
 h1 {
     display: flex;
     justify-content: center;
+    padding-right: 200px;
     
 }
 
