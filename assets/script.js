@@ -5,7 +5,17 @@ var geocoder;
 var gobutton = document.getElementById("gobutton");
 var userlocation;
 var displaylist = document.getElementById("list");
+var userevent = document.getElementById("user-search");
 var address;
+
+// Below funtion allows user to click "Go" button with enter key
+
+userevent.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      gobutton.click();
+    }
+  });
 
 // Below function runs when page loads
 
