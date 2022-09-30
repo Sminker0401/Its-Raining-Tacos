@@ -47,33 +47,43 @@ function gettemp() {
     })
     .then(function (data) {
       var userlocationtemp = data.main.temp;
-      console.log(typeof userlocationtemp);
+      console.log(userlocationtemp);
       tempresults = document.getElementById("temp-results");
       if (userlocationtemp < 65) {
         tempresults.textContent =
           "It's a little cold in " +
           address +
-          ". Here are some recommendations to warm you up.";
-        var restaurantsuggest = "cold";
+          ", the temperature is " +
+          Math.floor(userlocationtemp) +
+          "°. Here are some recommendations to warm you up.";
+        var restaurantsuggest = "Soup";
         initMap(restaurantsuggest);
       } else if (userlocationtemp < 75) {
         tempresults.textContent =
           "Spring is in the air in " +
           address +
-          ". Here are some recommendations to enjoy this nice weather.";
-        var restaurantsuggest = "nice";
+          ", the temperature is " +
+          Math.floor(userlocationtemp) +
+          "°. Here are some recommendations to enjoy this nice weather.";
+        var restaurantsuggest = "Tacos";
         initMap(restaurantsuggest);
       } else if (userlocationtemp < 90) {
         tempresults.textContent =
           "It's heating up in " +
           address +
-          ". Here are some chill spots to get a bite.";
-        var restaurantsuggest = "warm";
+          ", the temperature is " +
+          Math.floor(userlocationtemp) +
+          "°. Here are some chill spots to get a bite.";
+        var restaurantsuggest = "Ice Cream";
         initMap(restaurantsuggest);
       } else {
         tempresults.textContent =
-          "It's a scorcher in " + address + ". Here are some frosty hangouts.";
-        var restaurantsuggest = "hot";
+          "It's a scorcher in " +
+          address +
+          ", the temperature is " +
+          Math.floor(userlocationtemp) +
+          "°. Here are some frosty hangouts.";
+        var restaurantsuggest = "Ice Cream";
         initMap(restaurantsuggest);
       }
     });
@@ -92,12 +102,12 @@ function initMap(restaurantsuggest) {
 
   var request = {
     location: userlocation[0].geometry.location,
-    radius: "100",
-    type: ["restaurant"],
+    radius: "9000",
+    query: restaurantsuggest,
   };
 
   var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback);
+  service.textSearch(request, callback);
 
   // Remove old search results below here
 
@@ -111,15 +121,11 @@ function initMap(restaurantsuggest) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
       console.log(restaurantsuggest);
 
-      // if (restaurantsuggest = "warm") {
-      //   results
-      // }
-
-      for (var i = 0; i < results.length; i++) {
+      for (var i = 0; i < 11; i++) {
         var listname = document.createElement("h1");
         listname.textContent = results[i].name;
         var listaddress = document.createElement("li");
-        listaddress.textContent = results[i].vicinity;
+        listaddress.textContent = results[i].formatted_address;
         displaylist.appendChild(listname);
         listname.appendChild(listaddress);
         console.log(results[i]);
