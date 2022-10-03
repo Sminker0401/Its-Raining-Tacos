@@ -135,7 +135,7 @@ function initMap(restaurantsuggest) {
         var listname = document.createElement("h1");
         listname.textContent = results[i].name;
         var listaddress = document.createElement("li");
-        listaddress.textContent = results[i].formatted_address;
+        listaddress.textContent = "\xa0- " + results[i].formatted_address;
         displaylist.appendChild(listname);
         listname.appendChild(listaddress);
         console.log(results[i]);

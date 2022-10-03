@@ -31,6 +31,11 @@ h1 {
     background: rgba(5, 5, 5, 0.5);
 }
 
+#list li {
+    list-style: none;
+    font-style: italic;
+}
+
 button {
     margin-left: 5px;
 }
