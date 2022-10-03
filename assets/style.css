@@ -24,12 +24,20 @@ h1 {
 }
 
 #search {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     padding: 30px;
     background: rgba(5, 5, 5, 0.5);
 }
+
+#search-and-gobutton {
+    display: flex;
+    justify-content: center;
+}
+
+#search-and-gobutton div {
+    display: inline-block;
+}
+
+
 
 #list li {
     list-style: none;
